@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+# Use postgresql as the database for Active Record
+gem "pg", "1.3.5"
+
 gem "rails",           "7.0.4"
 gem "sassc-rails",     "2.1.2"
 gem "sprockets-rails", "3.4.2"
