@@ -9,4 +9,10 @@
     <%= user.email %>
   </p>
 
+  <%if user && user.microposts.any? && user.microposts.first %>
+    <p>
+      <strong>First Micropost:</strong>
+      <%= h(user.microposts.first.content) %>
+    </p>
+  <%end%>
 </div>
