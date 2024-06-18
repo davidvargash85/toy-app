@@ -3,8 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
-# Use postgresql as the database for Active Record
-gem "pg", "1.3.5"
+# Use sqlite3 as the database for Active Record in development and test environments
+gem "sqlite3", "1.7.3", group: [:development, :test]
+
+# Use pg as the database for Active Record in production environment
+gem "pg", "1.3.5", group: :production
 
 gem "rails",           "7.0.4"
 gem "sassc-rails",     "2.1.2"
@@ -15,11 +18,9 @@ gem "stimulus-rails",  "1.0.4"
 gem "jbuilder",        "2.11.5"
 gem "puma",            "5.6.4"
 gem "bootsnap",        "1.12.0", require: false
-gem "sqlite3",         "1.7.3"
 
 group :development, :test do
-  gem "sqlite3", "1.7.3"
-  gem "debug",   "1.5.0", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", "1.5.0", platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
